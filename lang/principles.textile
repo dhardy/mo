@@ -1,6 +1,6 @@
 h1. mo language specification
 
-h5. Design principles
+h4. Design principles
 
  * Low-level optimisation is the computer's job, not the programmers.
  * Syntax should not get in the way of _language_; however it is required to make statements explicit (i.e. concise statements are better).
@@ -13,14 +13,16 @@ h5. Design principles
  * no keyword should be re-used with a different meaning/purpose (e.g. "static" in C++ as it applies to arrays, variable storage and non-member functions).
 
 
-h5. Library design
+h4. Library design
 
  * Aim for three things:
  ** easy usage
  ** powerful/flexible usage
  ** efficiency
  * For each feature, try to provide examples of both simple usage and more flexible usage. E.g.:
- @/// Create a window which is automatically closed on program exit:
+
+<pre><code>
+    /// Create a window which is automatically closed on program exit:
     createWindow().open();
     
     // Step-by-step:
@@ -29,10 +31,10 @@ h5. Library design
     w.open();
     ...
     w.close();	// called implicitly at scope close, so not usually necessary to call explicitly
- @
+</code></pre>
 
 
-h5. Tool design
+h4. Tool design
 
  * Running the build-tool should have exactly the same effect (with regards to binary output & error messages (excepting order of error messages)) regardless of whether you're starting from a clean build or not.
  ** Object files are purely caches for performance improvement

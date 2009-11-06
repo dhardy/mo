@@ -4,7 +4,7 @@ Currently this is very-much incomplete; in some cases I've changed my mind about
 
 h4. Contents
 
-| "Principles":principles.texile | Not really part of the specification, just some of it's driving principles. | |
+| "Principles":principles.textile | Not really part of the specification, just some of it's driving principles. | |
 | "Expressions":expressions.textile | | incomplete |
 | "ideas/":ideas/README.textile | Anything from less formalized specifications to crazy ideas. | |
 

@@ -31,14 +31,14 @@ A block is a list of [0,inf) expressions:
 
 
 Any system needs fundamental building blocks, or atoms. The atomic functions have the following prototypes:
-@//Standard arithmatic, where T is one of ... (some atomic types), OP is one of "plus" || "minus" || "multiply" || "divide" || "modulus" || ... (check what makes sense):
+<pre><code>//Standard arithmatic, where T is one of ... (some atomic types), OP is one of "plus" || "minus" || "multiply" || "divide" || "modulus" || ... (check what makes sense):
   T lang.OP (T NAME, T NAME);
 //Vector operations, where TV is ... (some vector types), OP is ... (some vector ops):
-@
+</code></pre>
 
 
 Possible examples:
-@  template(T) T if (Bool cond, T tVal, T fVal) {...}	// D
+<pre><code>  template(T) T if (Bool cond, T tVal, T fVal) {...}	// D
   T if(T) (Bool cond, T tVal, T fVal) {...}	// D
   
   
@@ -59,7 +59,7 @@ Possible examples:
       ;
   x = if (cond) {1;}
       else {0;}
-@
+</code></pre>
 
 <hr>
 
