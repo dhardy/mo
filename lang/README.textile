@@ -1,0 +1,15 @@
+h1. mo language specification
+
+Currently this is very-much incomplete; in some cases I've changed my mind about something since writing it here, so the most complete spec is yet-to-be-written.
+
+h4. Contents
+
+| "Principles":principles.texile | Not really part of the specification, just some of it's driving principles. | |
+| "Expressions":expressions.textile | | incomplete |
+| "ideas/":ideas/README.textile | Anything from less formalized specifications to crazy ideas. | |
+
+<hr>
+
+Copyright © Diggory Hardy 2009
+
+Distributed under the Boost Software License, Version 1.0. (See accompanying file "../LICENSE_1_0.txt":LICENSE_1_0.txt or copy at "http://www.boost.org/LICENSE_1_0.txt":http://www.boost.org/LICENSE_1_0.txt)
