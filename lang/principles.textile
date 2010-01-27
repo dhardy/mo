@@ -11,6 +11,7 @@ h4. Design principles
  ** (if cond XXX [YYY])
  * aim to allow natural and familiar syntax, when non-ambiguous; need to consider this against generality
  * no keyword should be re-used with a different meaning/purpose (e.g. "static" in C++ as it applies to arrays, variable storage and non-member functions).
+ * avoid writing code twice (or unnecessarily): declarations often not needed, type can sometimes be determined from function return type
 
 
 h4. Library design
