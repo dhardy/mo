@@ -18,6 +18,8 @@ Introduction
 [About](About.html)
 :   Principles, etc.
 
+[Milestones & contribution](Plan.html)
+
 ---
 
 Copyright © Diggory Hardy 2009-2010.
