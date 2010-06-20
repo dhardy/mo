@@ -5,11 +5,15 @@ body {
     font-size: 100%;
 }
 
-div.content {
-    background-color: #FFFFFF;
-    max-width: 50em;
+div.site {
+    max-width: 52em;
     margin-left:auto;
     margin-right:auto;
+    padding: .5em;
+}
+
+div.content {
+    background-color: #FFFFFF;
     padding: .5em;
     border-style:solid;
     border-width: thin;
