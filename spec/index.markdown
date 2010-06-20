@@ -9,6 +9,7 @@ For each part of the spec, a status is included to indicate how complete the sec
 are:
 
 | code | description |
+| ----:| ------------ |
 | not-started | |
 | initial | Testing of ideas, with no real expectation that these are final. |
 | partial | Some contents have rough/proposed plans, but some are still loose ideas. |
