@@ -5,10 +5,15 @@ title: About (principles behind mo)
 {{ page.title }}
 ================
 
-Mo is a programming language under development. With the aim of being an efficent, safe, hybrid
-imperative and functional language, It is intended partly to serve as a replacement to C++
-(compatible with existing C++ code) and partly to allow easy experimentation of new language designs
-somewhat like lisp has many dialects.
+Mo is a programming language under development (excluding things like standard libraries for io,
+containers, etc.). For now, my aim is to make mo generate code, and have that code linkable against
+C and C++ libraries. Standard libraries will hopefully be created later, similar to the way D has
+the phobos and tango libraries (though core components needed for code generation will be in a small
+core library for mo).
+
+With the aim of being an efficent, safe, hybrid imperative and functional language, mo is intended
+partly to serve as a replacement to C++ (compatible with existing C++ code) and partly to allow
+easy experimentation of new language designs somewhat like lisp has many dialects.
 
 However, my primary motivation in creating mo is to bring together some new ideas into a mainstream
 language while trying to be sure the language has no rough corners.
@@ -20,7 +25,7 @@ google search.
 What mo is and isn't intended to be:
 
 *   Primarily intended to be a compiled language, but an interpreter (or at least runtime-
-    compilation and dynamic linking) may also added.
+    compilation and dynamic linking) may also be added.
 *   Intended as a _systems_ language as opposed to a _web_ language. Thus performance is
     considered more important than portability of compiled binaries.
 *   Intended to offer much of the built-in safety of languages like Java, without impeeding
