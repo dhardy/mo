@@ -28,7 +28,7 @@ which some languages like Java and C♯ call generic programming.)
 [boost::spirit]: http://www.boost.org/doc/libs/1_43_0/libs/spirit/doc/html/spirit/introduction.html
 
 In my experience with C++ and D, both provide powerful template systems, however _these are not well
-intergrated into the language_, but form a sub-syntax. C++, for example, has no concept of a
+integrated into the language_, but form a sub-syntax. C++, for example, has no concept of a
 compile-time `if` statement usable within templates, and template specialisations must be used
 instead (the [Template (programming)][wiki_templ] article on wikipedia gives a nice example).
 This is one (of many) ways in which D improves on C++, however, by and large, templates in D still

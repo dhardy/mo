@@ -11,6 +11,7 @@ Declaring and defining
 
 TODO: this lists how I want functions to be written. It needs to be clarified what of this is part
 of the language and what of the core library.
+
 Note that types, structs and some form of arrays will need to be built-in, which provides all the
 required mechanics to construct a type representing function input and output type. In order to
 provide the notation below, we only need to add some grammars and perhaps some special named types.
@@ -93,6 +94,25 @@ Syntax for a function call on `object` (an error if `object` is not callable):
 
     object '(' [ params ] ')'
     params := param [ ',' param ]
+
+
+Named variable passing
+--------------------------------
+
+Named variable passing of a form something like
+
+    foo( 1, 2; x:3, y:4 )
+
+should be possible, but need only be available where enabled by the function. Additionally,
+it should hopefully be entirely implemented within the language. This is possible by having the
+function take a literal/value of the form `ORDERED ; MAPPED` where `ORDERED` is a comma-separated
+list of values mapped by order and `MAPPED` is a comma-separated list of `KEY:VALUE` pairs, mapping
+parameters by `KEY`. (of course, many functions would only take an `ORDERED` type literal, and
+functions only taking `MAPPED` type values are also valid). It is natural that such `MAPPED`
+parameters should provide an injective but not necessarily surjective mapping (that is, each value
+given must map to a valid parameter, but it is not required to map to all parameters); thus it is
+natural that all `MAPPED` parameters should have a default value. (Whether or not all must, and
+whether `ORDERED` parameters should also have default values needs to be decided.)
 
 
 Meta-coding function analysis

@@ -17,8 +17,25 @@ are:
 | proposed | The item is proposed to be used, roughly as it stands. |
 | 1.0 | Item has been released as part of the final specification. |
 
+
+Types
+-------
+
+[Arrays](Arrays.html)
+:   Static and dynamic arrays
+
 [Functions](functions.html)
 :   Declaring, defining and calling functions.
+
+
+Other
+-----------
+
+[Builtins](Builtins.html)
+:   Ideas about where the language-builtins and core library boundary should be.
+
+[Debugging options](Debugging-options.html)
+:   Debug-mode checks (language-specific) and debug symbols (compiler-specific)
 
 ---
 
