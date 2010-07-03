@@ -5,23 +5,29 @@ title: mo
 {{ page.title }}
 ================
 
-[Abstract](abstract/)
+Mo is a programming language under development, aiming to provide full C++ interoperability, lisp-
+like meta-programming and a high level of built-in safety checks, without compromising performance
+or ease-of-use. Currently, it's a long way off those goals. [Read more...](abstract/About.html)
+
+Contents
 -------------
 
-Currently there's not very much here (most of my notes are still private). But feel free to read
-up on what this project is about, under [abstract](abstract/).
+[abstract](abstract/)
+:   Introduction to mo
 
-1.  [abstract](abstract/) Introduction to what the project is about.
+[syntax](syntax/) (no content)
+:   The language's general syntax (fairly basic stuff).
 
+[lang](lang/)
+:   The language's built-in semantics (atoms from which standard functionality such as integers,
+    arrays and for-loops are built).
 
-[Specification](spec/)
------------------
-
-Completing a rough specification is the first milestone of this project
+[core](core/) (no content)
+:   The language's core library (the standard functionality mentioned above and not much else).
 
 ---
 
 Copyright © Diggory Hardy 2009-2010.
 
 Distributed under the Boost Software License, Version 1.0.
-(See accompanying file [LICENSE_1_0.txt]({{site.root}}/LICENSE_1_0.txt) or copy at <http://www.boost.org/LICENSE_1_0.txt>)
+(See accompanying file [licences/BOOST_1_0.txt]({{site.root}}/licences/BOOST_1_0.txt) or copy at <http://www.boost.org/LICENSE_1_0.txt>)

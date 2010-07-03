@@ -32,7 +32,7 @@ Static arrays use the following built-in object with the following interface:
 
 NOTE: need a "get slice" function or can be implemented by creating another array and calling it's copy function?
 
-They are stored in-place (with contents on the stack if possible). Their size is 2^n*sizeof(T), where n is the smallest non-negative integer such that 2^n >= size.
+They are stored in-place (with contents on the stack if possible). Their size is `2^n*sizeof(T)`, where `n` is the smallest non-negative integer such that `2^n >= size`.
 
 Optimization: in llvm they use it's vector type to allow SSE operations, etc.
 
@@ -169,4 +169,4 @@ Copying arrays:
 Copyright © Diggory Hardy 2009-2010.
 
 Distributed under the Boost Software License, Version 1.0.
-(See accompanying file [LICENSE_1_0.txt]({{site.root}}/LICENSE_1_0.txt) or copy at <http://www.boost.org/LICENSE_1_0.txt>)
+(See accompanying file [licences/BOOST_1_0.txt]({{site.root}}/licences/BOOST_1_0.txt) or copy at <http://www.boost.org/LICENSE_1_0.txt>)

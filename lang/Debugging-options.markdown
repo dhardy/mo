@@ -45,7 +45,7 @@ The default level is 2.0. The following lists some standard levels:
 | 4.2   | Built-in run-time validity and type checking of all pointer derefences (by tracking all objects). (Not cheap?) (How does this work libraries from other languages?) | |
 | 5.0   | | Checks with level greater than 5 should only be rather pedantic checks: ones that theoretically can be proven unnecessary at compile-time but are included anyway. |
 
-Compile-time checks are always performed; e.g. if the compiler can prove an array access is invalid at compile time it should report an error (even with level=0).
+Compile-time checks are always performed; e.g. if the compiler can prove an array access is invalid at compile time it should report an error (even with `level=0`).
 
 
 Unsorted ideas
@@ -53,15 +53,18 @@ Unsorted ideas
 
 Debug modes.
 Independant of optimisation; user would almost never want to turn optimisations off.
- * debugging symbols option (e.g. -g for gdb)
- * debug version, to turn on optional in-code checks. May have a value, and individual debug-version names may be turned on or off (e.g. "-d" or "-d=0.2 -d+NAME -d-OTHERNAME").
-  * debug { ... }       // compiled in for any debug value
-  * debug(x) {...}      // compiled in when debug num > x
-  * debug(NAME,x) {...} // compiled in (when debug num > x unless -d-NAME is given), or when -d+NAME is given.
+
+*   debugging symbols option (e.g. `-g` for gdb)
+*   debug version, to turn on optional in-code checks. May have a value, and individual debug-version
+    names may be turned on or off (e.g. `-d` or `-d=0.2 -d+NAME -d-OTHERNAME`).
+    
+    *   `debug { ... }` — compiled in for any debug value
+    *   `debug(x) {...}` — compiled in when `level > x`
+    *   `debug(NAME,x) {...}` — compiled in (when `level > x` unless `-d-NAME` is given), or when `-d+NAME` is given.
 
 ---
 
 Copyright © Diggory Hardy 2009-2010.
 
 Distributed under the Boost Software License, Version 1.0.
-(See accompanying file [LICENSE_1_0.txt]({{site.root}}/LICENSE_1_0.txt) or copy at <http://www.boost.org/LICENSE_1_0.txt>)
+(See accompanying file [licences/BOOST_1_0.txt]({{site.root}}/licences/BOOST_1_0.txt) or copy at <http://www.boost.org/LICENSE_1_0.txt>)

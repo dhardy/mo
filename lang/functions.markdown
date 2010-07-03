@@ -120,7 +120,8 @@ Meta-coding function analysis
 Function classes: a restriction of functions only using certain operations, or functions based on
 those operations. Many "function processing" functions will only operate on some such subset of all functions.
 
-Want a standard way of dealing with the built-in operations, and in some cases higher operations. So, for example, derivatives of sin, +, *, etc.
+Want a standard way of dealing with the built-in operations, and in some cases higher operations.
+So, for example, derivatives of `sin`, `+`, `*`, etc.
 
 
 Default / missing values
@@ -162,4 +163,4 @@ taking the parameter and one not.
 Copyright © Diggory Hardy 2009-2010.
 
 Distributed under the Boost Software License, Version 1.0.
-(See accompanying file [LICENSE_1_0.txt]({{site.root}}/LICENSE_1_0.txt) or copy at <http://www.boost.org/LICENSE_1_0.txt>)
+(See accompanying file [licences/BOOST_1_0.txt]({{site.root}}/licences/BOOST_1_0.txt) or copy at <http://www.boost.org/LICENSE_1_0.txt>)
