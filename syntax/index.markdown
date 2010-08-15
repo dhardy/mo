@@ -5,7 +5,14 @@ title: mo syntax specification
 {{ page.title }}
 ================
 
-[Symbol resolution](symbol-resolution.markdown)
+1.  [Lexical processing](lexical.html)
+    
+    File encoding and tokenisation
+2.  [Syntax trees](syntax-trees.html)
+    
+    Deriving syntax trees from tokens: expressions, operators, etc.
+
+[Symbol resolution](symbol-resolution.html)
 :   (in progress)
 
 ---

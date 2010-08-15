@@ -77,6 +77,93 @@ but makes a lot of sense to me:
     numeric literals, and custom types can have just as good literals as built-ins.
 
 
+Concept: flexibility
+----------------------------
+
+Flexibility and extensibility *is* important. Paradigms such as
+object-oriented design, functional programming, etc. can be highly useful,
+but 
+
+
+Concept: non-convergence
+-----------------------------------------
+
+Uniformity is generally considered good. For example, using a consistent
+naming convention, writing code in English, collaboratively using existing
+libraries rather than writing new ones. In many cases, this clearly is an
+efficient strategy.
+
+But not always. I see two main ways divergence or variations can have
+benefits: reliability and ingenuity.
+
+
+Concept: easy-to-read code
+------------------------------------------
+
+Would you rather write `x+2` or `add( x, 2 )`? The question may at first seem
+a bit pointless: both are easy to write. But consider reading the following:
+
+    divide(
+	add( negative( b ), sqrt( subtract( pow( b, 2 ), multiply( 4, multiply( a, c ) ) ) ) ),
+	multiply( 2, a )
+    )
+
+Even with neat spacing, a quick glance when reading the code doesn't really
+tell you what it *does*. Of course, the obvious improvement here is to use
+operator symbols:
+
+    ( -b + sqrt( b*b - 4*a*c ) ) / ( 2*a )
+
+which should at least make this recognizable as one of the roots of the
+general quadratic equation `ax² + bx + c = 0`, even if this is still not
+quite as clear as nicely formatted mathematical equations can be.
+
+OK — so that just adds up to a lot of words to point to a fairly obvious
+existing solution. My point? Easy to read basic numerical operators like
+these are considered important enough to serve very wide usage in
+programming languages, and yet the same rules don't always apply to
+higher-level contexts.
+
+In many cases there are moves to support higher level concepts with
+succinct syntax: for example, `foreach` directives, function literals
+(lambdas), vector operations; C++1x for example adds support for
+the first two of these into C++, while these have been available for a
+long time within a lot of languages.
+
+But why do we need to wait for language updates to get access to
+such features? Why can't we add them ourselves? This is an area
+functional programming languages have often had a big advantage
+in over imperative languages; lisp is an obvious example, while lua
+allows object-oriented programming without built-in support for it.
+
+Another example is writing complex expressions using custom operator
+syntax. [Boost::spirit](http://boost-spirit.com/) (and boost::xpressive)
+are very good examples here: overloading standard C++ operators
+with entirely different meanings. The flexibility of C++ here is
+impressive, and yet it also has limitations (for example no post-mono
+`?` operator to match the regex optional operator), besides requiring
+complex template code to implement the library. And what about writing
+a boolean conditional like `0 <= x < 1`? This is a ternary operator (as,
+for example, `c ? a : b`). Making a language *extensible* with this type
+of operator requires more than binary operator overloads and custom
+operator priority rules (this is where mo's grammars come in, but more
+on that later).
+
+A further point to make about operators is that it somehow needs to be
+clear how to interpret an expression. For example, while it may be nice
+to use words as operators as in
+
+    if( condition then A else B )
+
+it somehow needs to be clear that `then` and `else` are *operators*, not
+*expressions* (in this case the meaning is fairly clear to a human anyway,
+but in more complex cases this may not be the case). From the reader's
+point of view, this could be indicated through syntax highlighting, the
+text-operators could be syntactically differentiated (e.g. `'then`), or
+the reader may simply be expected to know `then` and `else` are operators
+within an `if` expression.
+
+
 Abstract: ideas behind the design
 -----------------------------------------------------
 
