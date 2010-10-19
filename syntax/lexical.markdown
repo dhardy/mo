@@ -121,15 +121,14 @@ form in order to deliminate a string literal.
 #### Operators (see http://en.wikipedia.org/wiki/Unicode_Mathematical_Operators):
 
     OPERATOR_CHAR :=
-	  UCP(0021) | UCR(0023-0026)
+	  UCP(0021) | UCP(0023) | UCR(0025-0026)
 	| UCR(002A-002C) | UCR(002E-002F)
 	| UCR(003A-003F)
-	| UCP(0040)
 	| UCP(005E) | UCP(007E)
 	| UCP(00B1) | UCP(00D7) | UCP(00F7)
 	| UCR(2200–22FF)
 
-That is, any of `!#$%&`, `*+,./`, `:;<=>?`, `@`, `^~`, `±×÷` or unicode "Mathematical Operators" block.
+That is, any of `!#%&`, `*+,./`, `:;<=>?`, `^~`, `±×÷` or unicode "Mathematical Operators" block.
 Potential inclusions are: `UCR(2032-2034)` prime marks, `UCR(2A00-2AFF)` unicode "Supplemental
 Mathematical Operators" block.
 
@@ -172,6 +171,8 @@ These are not currently assigned a purpose, and thus invalid outside of quoted l
 comments.
 
     Small form variants (operators): http://www.unicode.org/charts/PDF/UFE50.pdf
+    UCP(0040): @
+    UCP(0024), ...: currency symbols
 
 All characters not listed above also fall into this category.
 
