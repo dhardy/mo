@@ -7,6 +7,19 @@ title: Motivation
 
 TODO: re-organise/merge/throw out some content.
 
+
+----
+
+Aim: develop a syntax that is as clear and minimal as possible without being
+ambiguous, relying on unextendable key-words, or being highly complex to parse
+or reason about.
+
+Aim: allow highly optimal code generation through careful design and by limiting
+the specification to only what is commonly required
+(e.g. the default way of passing variables into a function is to pass as "const",
+which does not specify whether the variable is copied).
+
+
 Motivation (most recent)
 ===============
 

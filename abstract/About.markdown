@@ -5,57 +5,67 @@ title: About (principles behind mo)
 {{ page.title }}
 ================
 
-Mo is a programming language under development (excluding things like standard libraries for io,
-containers, etc.). For now, my aim is to make mo generate code, and have that code linkable against
-C and C++ libraries. Standard libraries will hopefully be created later, similar to the way D has
-the phobos and tango libraries (though core components needed for code generation will be in a small
-core library for mo).
+Mo is a programming language under development.
+I have two main agendas in its development:
 
-With the aim of being an efficent, safe, hybrid imperative and functional language, mo is intended
-partly to serve as a replacement to C++ (compatible with existing C++ code) and partly to allow
-easy experimentation of new language designs somewhat like lisp has many dialects.
+*   To create a language which will hopefully lure most current C++ users to
+    switch to it, with the purposes of providing a less bug-prone, more
+    productive language without any significant drawbacks compared to C++.
+*   To create what in my opinion is the best languague I can envisage, for both
+    high and low level high performance processor-native application
+    development.
 
-However, my primary motivation in creating mo is to bring together some new ideas into a mainstream
-language while trying to be sure the language has no rough corners.
+These two purposes may of course conflict in places, particularly with regard
+to creating syntax and semantics familiar to existing users, and somewhere
+along this line compromises will have to be met. My point of view here is that
+both new syntax is easier to acustom oneself to than new semantics of higher-level
+constructs, and that C++'s syntax, inherited as it is from C and various
+additions, is one of its worst properties, while many of the libraries in C++
+are already highly capable.
 
 Note to the reader: "mo" is a temporary name picked for current development.
-It would be a poor name for public use due to the difficulty of finding relevent information in a
-google search.
+It would be a poor name for public use due to the difficulty of finding relevent
+information in a google search.
+
+
+Qualities
+----------
 
 What mo is and isn't intended to be:
 
 *   Primarily intended to be a compiled language, but an interpreter (or at least runtime-
     compilation and dynamic linking) may also be added.
-*   Intended as a _systems_ language as opposed to a _web_ language. Thus performance is
-    considered more important than portability of compiled binaries.
-*   Intended to offer much of the built-in safety of languages like Java, without impeeding
-    run-time performance or preventing use of important features like pointers.
-*   It adopts the imperative style of C but allows many functional programming constructs too.
-*   Is intended to offer maximal unity by making all types objects (classes) and having a
-    minimal number of keywords.
+*   Intended as a _systems_ language (i.e. for compiling processor-native code).
+*   Intended to be compatible with compiled C and C++ code, and be able to
+    import C/C++ headers as mo symbols.
+*   Provide tight performance, rather than just high throughput.
+*   Intended to offer many built-in safety features without compromising
+    performance. In some cases choices between safety and performance must be
+    made; in this case the programmer should be able to make the choice between
+    the two.
+*   Mo adopts the imperative style of C but allows many functional programming
+    constructs too (with the intention of not restricting programmers to a
+    single paradign).
+*   Is intended to offer a very uniform interface:
+    
+    *   everything should be an object, including functions, types, class
+        instances and of course basic variables
+    *   nearly all objects, constructs, etc., should be defined within libraries
+        and not built-in, allowing replacement/extension using identical syntax
+        (in contrast to C++ additions like BOOST_FOREACH and boost::lambda)
+    *   use compile-time functions instead of many uses of templates
 *   Intended to be very simple to parse at the syntax and lower semantic levels, thus making module
     imports and function calls easy to find.
-*   Intended not to restrict types and operations (e.g. by providing keywords like if and switch,
-    or enforcing operator priorities or literal types), but instead to promote development of new
-    techniques by enabling their full integration into the language.
+*   Intended not to restrict types and operations (e.g. by providing keywords
+    like if and switch, or enforcing operator priorities or literal types), but
+    instead to promote development of new techniques by enabling their full
+    integration into the language. This kind of adaptaption should
+    be possible both with new features buit on top of existing libraries and by
+    entirely replacing mo's core libraries.
 *   Intended for 32-bit and greater CPUs with an 8-bit byte.
+*   Code should be easy to convert to and from C or C++ via compiler tools.
 
-It is inspired by D, C++ and Java, and also by functional programming.
-
-The main aims:
-
-*   Uniformity: no division between built-ins and library types and functions in normal use
-*   Flexibility. As much as possible will be written in the core library rather than being part of
-    the language specification, avoiding a course divide between built-in and in-library features
-    in syntax or semantics.
-*   Optimizable: design from an ideal-usage point-of-view, then optimize, rather than designing to
-    fit a particular machine capability.
-*   Compatibility, with existing mo binaries and C/C++ source code.
-*   Tight performance: language is designed for good realtime interaction (e.g. tight memory
-    management instead of garbage collection)
-*   Safety: warn/throw an error on dubious behaviour, rather than aim for maximum flexibility.
-
-Note: name some acronym of above?
+It is inspired by D, C++, Java and many other languages.
 
 Note: performance _is_ rather important in the design of the language, more so than ease-of-use
 (though less in many cases than safety, at least in debug mode). This should help produce reliable,
@@ -63,26 +73,51 @@ responsive applications.. maybe.
 
 Two big ideas on trial in mo:
 
-*   Return-type type derivation (e.g., given an expression `x+y` the type the `+` operation operates
-    on is determined solely by the expected return-type, not from `x` and `y`).
-*   Memory ownership model (closer to C++ than D/Java, with reference counting available)
+*   Return-type type derivation (e.g., given an expression `x+y` the type the
+    `+` operation operates on is determined solely by the expected return-type,
+    not from the types of `x` and `y`).
+*   Memory ownership model (closer to C++ than D/Java, with reference counting
+    available and generally being easy to use).
 
 The type from return-type idea is perhaps not very common (I don't remember seeing it elsewhere),
 but makes a lot of sense to me:
 
-*   There's always one return-value so no type-contention: when adding a `double` and an `unsigned`
-    in C++, what type-casting should be done?
-*   Literals don't need a type; in fact they don't need to be recognized as anything more than
-    being literals in the syntax. This has several implications, such as no "u" or "L" suffixes on
-    numeric literals, and custom types can have just as good literals as built-ins.
+*   There's always one return-value so no type-contention. For example, when
+    adding an `int` and an `unsigned` in C++, what type-casting should be done?
+*   Literals don't need a type; in fact they don't need to be recognized as
+    anything more than being literals in the syntax. This has several
+    implications, such as no "u" or "L" suffixes on numeric literals, and
+    custom types that can have just as good literals as built-ins.
 
 
-Concept: flexibility
-----------------------------
+Development strategy and progress
+---------------------------------
 
-Flexibility and extensibility *is* important. Paradigms such as
-object-oriented design, functional programming, etc. can be highly useful,
-but 
+Mo is a programming language under current development, the first stage of which
+focuses on developing the syntax of the language, how these will be used in the
+lowest level libraries and be extended to provide higher-level syntax, and the
+built-in semantics (or "boot-strap" library) needed as axoims (basic types and
+operations). Current development lies within this stage.
+
+The second stage will be to create a compiler for mo and create a C++ compatibilty
+library for mo, aiming for full binary compatibility (ability to import C/C++
+headers and link against pre-built object files). When complete, this should
+allow development of full programs in mo taking advantage of C/C++ libraries,
+however the syntax required within mo code to interact with C++ objects will
+likely not in every case be the most elegant. My aim is not to start work on this
+stage until the first is largely complete, since at that point development of a
+compiler should be relatively easy (using llvm for code generation,
+boost::spirit for first-level syntax parsing and possibly clang for parsing
+C/C++ headers).
+
+The final component will be an on-going project to provide good native mo
+libraries. Rather than attempt to write or design these myself or only within a
+small team, I propose to create a repository promoting open development, with
+sections for both in-development and stable libraries, and a process for
+selecting the best of these as standard libraries.
+
+
+-----
 
 
 Concept: non-convergence
@@ -104,18 +139,18 @@ Would you rather write `x+2` or `add( x, 2 )`? The question may at first seem
 a bit pointless: both are easy to write. But consider reading the following:
 
     divide(
-	add( negative( b ), sqrt( subtract( pow( b, 2 ), multiply( 4, multiply( a, c ) ) ) ) ),
-	multiply( 2, a )
+        add( negative( b ), sqrt( subtract( pow( b, 2 ), multiply( 4, multiply( a, c ) ) ) ) ),
+        multiply( 2, a )
     )
 
 Even with neat spacing, a quick glance when reading the code doesn't really
 tell you what it *does*. Of course, the obvious improvement here is to use
 operator symbols:
 
-    ( -b + sqrt( b*b - 4*a*c ) ) / ( 2*a )
+    ( -b + sqrt( b×b - 4×a×c ) ) / ( 2×a )
 
 which should at least make this recognizable as one of the roots of the
-general quadratic equation `ax² + bx + c = 0`, even if this is still not
+general quadratic equation `a·x² + b·x + c = 0`, even if this is still not
 quite as clear as nicely formatted mathematical equations can be.
 
 OK — so that just adds up to a lot of words to point to a fairly obvious
@@ -194,12 +229,18 @@ unless I can see that for some uses such a feature would be required in the core
 
 Other ideas:
 
-*   Syntax should not get in the way of _language_; however it is required to make statements explicit (i.e. concise statements are better).
-*   try to allow syntax similar to many common languages to be implemented according to the language's rules; e.g. users could write an if function which can be used like a C if statement, or a function to be used like a lisp if function:
+*   Syntax should not get in the way of _language_; however it is required to make
+    statements explicit (i.e. concise statements are better).
+*   try to allow syntax similar to many common languages to be implemented according
+    to the language's rules; e.g. users could write an if function which can be
+    used like a C if statement, or a function to be used like a lisp if function:
+    
     *   `if (cond) XXX [else YYY]`
     *   `(if cond XXX [YYY])`
-*   no keyword should be re-used with a different meaning/purpose (e.g. "static" in C++ as it applies to arrays, variable storage and non-member functions).
-*   avoid writing code twice (or unnecessarily): declarations often not needed, type can sometimes be determined from function return type
+*   no keyword should be re-used with a different meaning/purpose (e.g. "static" in
+    C++ as it applies to arrays, variable storage and non-member functions).
+*   avoid writing code twice (or unnecessarily): declarations often not needed,
+    type can sometimes be determined from function return type
 
 ----
 

@@ -278,27 +278,18 @@ written as quoted literals.
 ### Comments ###
 
 With the intention of trying to make source code files more semantic and less syntactic, there are
-five types of comments, four of which are associated with something (associating more than one
+four types of comments, two of which are associated with a statement (associating more than one
 comment with an item is legal).
-
-*   #### Header comment block
-
-    Syntax: TODO
-
-    Such comments, usually found at the top of files (though not required to be at the top), are
-    considered a property of the file. They are intended for licence blocks and comments regarding
-    the file as a whole.
 
 *  #### Section break comments
 
-    Syntax: `—` (m-dash) or `---` (three hyphens) until line-end; no content other than spaces may
-    occur before this token. One closing `—` or `---` may occur at the line's end, in which case it
-    is not considered part of the comment's contents. If two or more sequential lines consist of
+    Syntax: line starts and optionally ends with `—` (m-dash) or `---` (three hyphens) (ignoring
+    whitespace at line start and end). The contents between the opening dash and closing dash
+    or line end are considered a comment. If two or more sequential lines consist of
     these comments, their contents are combined to form a single comment. (`—` and `---` may be
-    used interchangably; they are not required to match at line-end with in multi-line versions).
-
-    This forms a small break and section header; it applies as documentation to all content below
-    until the next section-break or the end of the current scope.
+    used interchangably; they are not required to match at line-end with in multi-line versions.)
+    
+    This forms a small break and section header; editors may display it as a line break.
 
 *   #### Pre-statement comments
 
@@ -308,20 +299,21 @@ comment with an item is legal).
     This forms a comment for the following statement (see [syntax trees](syntax-trees.html#statements)
     for the definition of a statement).
 
-*   #### Post-expression comments
+*   #### Mid/post-statement comments
 
-    Syntax: a `//` until the line's end, where non-comment content preceeded this comment on the
-    same line.
+    Syntax: a `//` until the line's end or a `/* ... */` sequence, with other content on the same
+    line (considering the *line* as the region between two line-break tokens).
 
-    This forms a comment for the preceeding expression (including preceeding and succeeding lines
-    where necessary to match brackets).
+    This forms a comment for the smallest statement sharing the same line. Note that line breaks
+    within a `/* ... */` comment are not considered line-break tokens and thus cannot split
+    statements.
 
 *   #### Unassociated comments
 
     Syntax: a `/+` until a matching `+/`, except that each embedded `/+` must first have its own
     matching `+/`.
 
-    These are useful for commenting-out code, but shouldn't be used for documentation. Other types
+    These are useful for commenting-out code, not intended for documentation. Other types
     of comments may be associated with one of these comments, for example to document a
     commented-out function.
 

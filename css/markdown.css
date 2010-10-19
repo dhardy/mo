@@ -1,7 +1,7 @@
 /* CSS rules for nice viewing of markdown */
 
 body {
-    background-color: #EEEEEE;
+    background-color: #EFEFEF;
     font-size: 100%;
 }
 
@@ -13,7 +13,7 @@ div.site {
 }
 
 div.content {
-    background-color: #FFFFFF;
+    background-color: #FBFAF5;
     padding: .5em;
     border-style:solid;
     border-width: thin;
@@ -21,13 +21,22 @@ div.content {
 }
 
 code {
-    font-family: monospace;
-    background-color: #efefe7;
-    padding: 0em .2em;
+    font-family: serif;
+    background-color: #f7f7fd;
+    padding: 0.0em 0.1em;
+    margin: 0.0em -0.1em;
+}
+pre {
+    min-width: 49em;
+    padding: 0.0em 0.1em;
+    margin: 0.2em 0.5em;
+    background-color: #f7f7fd;
+    border: 0.2em solid #f3f3f9;
 }
 
 h1,h2,p,ul,ol,li {
     padding: 0em;
+    max-width: 40em;
 }
 
 h1 {
