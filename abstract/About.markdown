@@ -119,6 +119,9 @@ selecting the best of these as standard libraries.
 
 -----
 
+*The below adds some more ideas, but with some repetition of the above.
+It could be better formatted.*
+
 
 Concept: non-convergence
 -----------------------------------------
