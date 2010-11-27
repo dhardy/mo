@@ -199,6 +199,8 @@ line-break sequences and bracket characters are always considered individual tok
 would be passed as a single identifier token, but `[[` would be parsed as two bracket tokens).
 
 TODO: quotes
+Note: isn't it equivalent to construct quoted sequences in a separate pass before other tokenization?
+This would be simpler to describe.
 
 TODO: comment start sequences: must not be matched inside quoted literals, so can only be matched
 before tokenisation if quotes are also matched at this point. Makes sense? Otherwise, must be based

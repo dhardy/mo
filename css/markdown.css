@@ -20,6 +20,10 @@ div.content {
     border-color: #444444;
 }
 
+div.end-notes {
+    font-size: 60%;
+}
+
 code {
     font-family: serif;
     background-color: #f7f7fd;
@@ -57,4 +61,26 @@ ul, ol {
 }
 li {
     margin: .1em 0em;
+}
+/*
+#top-links table, #top-links tr, #top-links th, #top-links td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#top-links td, #top-links th {
+    padding: .25em .5em .25em .5em;
+    background-color: white;
+}
+*/
+#top-links table {
+    border: 0px solid black;
+    border-collapse: separate;
+    border-spacing: 1em 0.2em;
+}
+#top-links tr {
+    background-color: white;
+}
+#top-links td, #top-links th {
+    padding: .25em .5em .25em .5em;
+    border: 1px solid black;
 }
