@@ -77,7 +77,11 @@ Two big ideas on trial in mo:
     `+` operation operates on is determined solely by the expected return-type,
     not from the types of `x` and `y`).
 *   Memory ownership model (closer to C++ than D/Java, with reference counting
-    available and generally being easy to use).
+    available and generally being easy to use). As far as possible it should be
+    possible to consider objects as values which can be adjusted independently
+    of other objects unless they are explicitly a reference type. For example,
+    strings are safe to use as keys in C++ sets/maps because they are copied in
+    full from the originals, not references to values which could be mutated.
 
 The type from return-type idea is perhaps not very common (I don't remember seeing it elsewhere),
 but makes a lot of sense to me:

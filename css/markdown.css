@@ -55,12 +55,14 @@ h2 {
 }
 p {
     margin: .5em 0em;
+    text-indent: 0.4em;
+    margin: 0.2em 0em;
 }
 ul, ol {
     margin: 0em 0em 0em 2em;
 }
 li {
-    margin: .1em 0em;
+    margin: .2em 0em;
 }
 /*
 #top-links table, #top-links tr, #top-links th, #top-links td {
